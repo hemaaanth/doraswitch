@@ -11,6 +11,42 @@ const replacements = [
       pattern: /https:\/\/etherscan\.io\/address\/(.+)/,
       replacement: 'https://app.ondora.xyz/network/ethereum/accounts/$1',
     },
+    {
+      pattern: /https:\/\/polygonscan\.com\/address\/(.+)/,
+      replacement: 'https://app.ondora.xyz/network/polygon/accounts/$1',
+    },
+    {
+      pattern: /https:\/\/polygonscan\.com\/tx\/(.+)/,
+      replacement: 'https://app.ondora.xyz/network/polygon/interactions/$1',
+    },
+    {
+      pattern: /https:\/\/polygonscan\.com\/address\/(.+)/,
+      replacement: 'https://app.ondora.xyz/network/polygon/accounts/$1',
+    },
+    {
+      pattern: /https:\/\/gnosisscan\.io\/address\/(.+)/,
+      replacement: 'https://app.ondora.xyz/network/gnosis/accounts/$1',
+    },
+    {
+      pattern: /https:\/\/gnosisscan\.io\/tx\/(.+)/,
+      replacement: 'https://app.ondora.xyz/network/gnosis/interactions/$1',
+    },
+    {
+      pattern: /https:\/\/gnosisscan\.io\/address\/(.+)/,
+      replacement: 'https://app.ondora.xyz/network/gnosis/accounts/$1',
+    },
+    {
+      pattern: /https:\/\/goerli.basescan\.org\/address\/(.+)/,
+      replacement: 'https://app.ondora.xyz/network/base-testnet/accounts/$1',
+    },
+    {
+      pattern: /https:\/\/goerli.basescan\.org\/tx\/(.+)/,
+      replacement: 'https://app.ondora.xyz/network/base-testnet/interactions/$1',
+    },
+    {
+      pattern: /https:\/\/goerli.basescan\.org\/address\/(.+)/,
+      replacement: 'https://app.ondora.xyz/network/base-testnet/accounts/$1',
+    },
   ];
   
   function replaceURL(tabId, url) {
