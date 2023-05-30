@@ -8,7 +8,10 @@
       "activeTab"
     ],
     "host_permissions": [
-      "https://etherscan.io/*"
+      "https://etherscan.io/*",
+      "https://polygonscan.com/*",
+      "https://gnosisscan.io/*",
+      "https://goerli.basescan.org/*"
     ],
     "icons": {
       "256": "dora.png"
@@ -16,7 +19,10 @@
     "content_scripts": [
       {
         "matches": [
-          "https://etherscan.io/*"
+          "https://etherscan.io/*",
+          "https://polygonscan.com/*",
+          "https://gnosisscan.io/*",
+          "https://goerli.basescan.org/*"
         ],
         "js": [
           "content.js"
