@@ -1,37 +1,37 @@
 {
-    "manifest_version": 3,
-    "name": "Doraswitch",
-    "version": "0.1",
-    "description": "Dora >>>> Etherscan",
-    "permissions": [
-      "scripting",
-      "activeTab"
-    ],
-    "host_permissions": [
-      "https://etherscan.io/*",
-      "https://polygonscan.com/*",
-      "https://gnosisscan.io/*",
-      "https://goerli.basescan.org/*"
-    ],
-    "icons": {
-      "256": "dora.png"
-    },
-    "content_scripts": [
-      {
-        "matches": [
-          "https://etherscan.io/*",
-          "https://polygonscan.com/*",
-          "https://gnosisscan.io/*",
-          "https://goerli.basescan.org/*"
-        ],
-        "js": [
-          "content.js"
-        ],
-        "run_at": "document_idle",
-        "all_frames": true
-      }
-    ],
-    "background": {
-      "service_worker": "background.js"
+  "manifest_version": 3,
+  "name": "Doraswitch",
+  "version": "0.1",
+  "description": "Dora >>>> Etherscan",
+  "permissions": [
+    "scripting",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://etherscan.io/*",
+    "https://polygonscan.com/*",
+    "https://gnosisscan.io/*",
+    "https://goerli.basescan.org/*"
+  ],
+  "icons": {
+    "256": "dora.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://etherscan.io/*",
+        "https://polygonscan.com/*",
+        "https://gnosisscan.io/*",
+        "https://goerli.basescan.org/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": true
     }
+  ],
+  "background": {
+    "service_worker": "background.js"
   }
+}
