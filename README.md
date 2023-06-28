@@ -1,6 +1,6 @@
 # Doraswitch
 
-A simple Chrome extension to replace commonly referenced block explorers with Dora (https://www.ondora.xyz/)
+A simple Chrome extension to replace commonly referenced block explorers with [Dora](https://www.ondora.xyz/). Clicking the extension icon in your menu bar will toggle it on/off if you need to visit the original page.
 
 Currently supports:
 - Ethereum (Etherscan)
@@ -9,8 +9,6 @@ Currently supports:
 - Scroll (Scrollscan)
 
 Feel free to open a PR to add (or an issue to request) support for additional chains or block explorers!
-
-The extension is quite naive (ie. will force the redirect without an option to manually override), so only install and use if you know what you're doing!
 
 To install, you'll need to know how to load an unpacked extension - it sounds intimidating but is quite simple!
 

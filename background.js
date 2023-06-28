@@ -65,25 +65,51 @@ const replacements = [
     }
 ];
 
+chrome.runtime.onInstalled.addListener(() => {
+  chrome.storage.sync.set({ isEnabled: true });
+  chrome.action.setBadgeText({ text: 'Y' });
+  chrome.action.setBadgeBackgroundColor({ color: '#0F0' });
+});
+
 function replaceURL(tabId, url) {
-    for (const {pattern, replacement}
-    of replacements) {
+  chrome.storage.sync.get(['isEnabled'], function(result) {
+    if (result.isEnabled) {
+      for (const { pattern, replacement } of replacements) {
         if (pattern.test(url)) {
-            const newUrl = url.replace(pattern, replacement);
-            chrome.tabs.update(tabId, {url: newUrl});
-            return;
+          const newUrl = url.replace(pattern, replacement);
+          chrome.tabs.update(tabId, { url: newUrl });
+          return;
         }
+      }
     }
+  });
 }
 
 chrome.runtime.onMessage.addListener((message, sender) => {
-    if (message.url) {
-        replaceURL(sender.tab.id, message.url);
-    }
+  if (message.url) {
+    replaceURL(sender.tab.id, message.url);
+  }
 });
 
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-    if (changeInfo.url && tab.active) {
-        replaceURL(tabId, changeInfo.url);
-    }
+  if (changeInfo.url && tab.active) {
+    replaceURL(tabId, changeInfo.url);
+  }
+});
+
+chrome.action.onClicked.addListener(() => {
+  chrome.storage.sync.get(['isEnabled'], function(result) {
+    const newIsEnabled = !result.isEnabled;
+    chrome.storage.sync.set({ isEnabled: newIsEnabled });
+
+    // Set the badge text
+    chrome.action.setBadgeText({
+      text: newIsEnabled ? 'Y' : 'N'
+    });
+
+    // Set the badge background color
+    chrome.action.setBadgeBackgroundColor({
+      color: newIsEnabled ? '#0F0' : '#F00'
+    });
+  });
 });

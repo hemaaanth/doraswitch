@@ -1,1 +1,4 @@
 **/.DS_Store
+.replit
+replit.nix
+package*.json
